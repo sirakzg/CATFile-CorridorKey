@@ -42,10 +42,10 @@ Exportor for just the Greenformer model weights to TorchScript and convert that 
 
 ### 2. Inference
 
-1. Convert your MP4, PNG or JPG images to linear colorspace, or use the RAW checkbox on your read nodes.
-2. Produce a rough core matte, roto nodes or even a simple keyer will do. You can also use other models from the [Nuke Cattery](https://community.foundry.com/cattery).
+1. Corridor's keyer model operates in linear color space, if needed convert your MP4, PNG or JPG images to linear or use the RAW checkbox on your read nodes.
+2. Produce a rough core matte, roto nodes or even a simple keyer were tested and seem to work alright. You can also use other models from the [Nuke Cattery](https://community.foundry.com/cattery).
 3. Note that the Inference node takes in 4 channels, so shuffle in your core alpha matte. And enable the "Optimize for speed and memory" checkbox to keep VRAM memory requirements below 24 GB.
-4. The despill functionality is provided in a Nuke Expression node, with a variable strength set to 1 and the following equations per channel:
+4. The despill functionality is provided in a Nuke Expression node, with a variable "strength" set to the default 1 and the following equations per channel:
    * Red
    ```
    r*(1-strength) + strength*(r + max(g - ((r+b)/2.),0)*.5)
