@@ -37,9 +37,6 @@ Exportor for just the Greenformer model weights to TorchScript and convert that 
    corridor_key
    ```
 
-3. Once despilled you can return to linear color space with the appropriate node going from sRGB back to Linear.
-
-
 ### 2. Inference
 
 1. Corridor's keyer model operates in linear color space, if needed convert your MP4, PNG or JPG images to linear or use the RAW checkbox on your read nodes.
@@ -58,6 +55,8 @@ Exportor for just the Greenformer model weights to TorchScript and convert that 
    ```
    b*(1-strength) + strength*(b + max(g - ((r+b)/2.),0)*.5)
    ```
+5. Once despilled you can return to linear color space with the appropriate node going from sRGB back to Linear.
+
 
 
 ## CorridorKey Licensing and Permissions
